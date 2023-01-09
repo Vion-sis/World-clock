@@ -40,7 +40,8 @@ function showCityTime(event) {
           <div class="time">${moment()
             .tz(cityTimeZone)
             .format("h:mm:ss [<small>]A[</small>]")}</div>
-        </div>`;
+        </div>
+        <a href="index.html">All cities</a>`;
 }
 
 let cityElement = document.querySelector("#city");
