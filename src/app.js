@@ -22,3 +22,25 @@ function showUpdate() {
 
 showUpdate();
 setInterval(showUpdate, 1);
+
+setInterval(function () {
+  function showCityTime(event) {
+    let cityTimeZone = event.target.value;
+    let cityName = cityTimeZone.replace("_", " ").split("/")[1];
+    let citySearch = document.querySelector("#cities");
+    citySearch.innerHTML = `<div class="city">
+         <div>
+            <h2>${cityName}</h2>
+            <div class="date">${moment()
+              .tz(cityTimeZone)
+              .format("dddd Do YYYY")}</div>
+          </div>
+          <div class="time">${moment()
+            .tz(cityTimeZone)
+            .format("h:mm:ss:SSS [<small>]A[</small>]")}</div>
+        </div>`;
+  }
+
+  let cityElement = document.querySelector("#city");
+  cityElement.addEventListener("change", showCityTime);
+}, 1);
